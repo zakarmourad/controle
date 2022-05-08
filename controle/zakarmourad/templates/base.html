@@ -1,0 +1,69 @@
+{% include 'header.html' %}
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0 justify-content-center">
+            <div class="col-sm-6 p-md-0">
+                <div class="row">
+                    <h4 class="mt-2">Liste des produits</h4>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <form action="/produit/search" method="get">
+                                <input type="text" name="search" placeholder="Search by Name"
+                                       value="{{request.GET.search}}">
+                                <input type="submit" value="Search">
+                            </form>
+                        </div>
+                        <div class="table-responsive pre-scrollable">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr align="center">
+                                    <th>ID</th>
+                                    <th>produit reference</th>
+                                    <th>nom produit</th>
+                                    <th>date production</th>
+                                    <th>prix</th>
+                                    <th>categorie</th>
+                                    <th>action</th>
+                                </tr>
+                                </thead>
+                                <tbody class="" id="produit-item">
+                                {% for p in produits %}
+                                <tr>
+                                    <td align="center">{{p.id}}</td>
+                                    <td align="center">{{p.produitRef}}</td>
+                                    <td align="center">{{p.nomProduit}}</td>
+                                    <td align="center">{{p.dateProduction}}</td>
+                                    <td align="center">{{p.prix}}</td>
+                                    <td align="center">{{p.categorie.nomCategorie}}</td>
+                                    <td align="center">
+                                        <div class="justify-content-center"><a href="/produit/detaille/{{p.id}}">
+                                            <button class="btn btn-outline-success">detaille</button>
+                                        </a></div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav >
+            <ul class="pagination justify-content-center mt-3">
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock content %}
+{% include 'footer.html' %}
