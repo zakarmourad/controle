@@ -8,66 +8,33 @@
                     <div class="row no-gutters">
                         <div class="col-xl-12">
                             <div class="auth-form">
-                                <h4 class="text-center mb-4">Ajout d'un patient</h4>
-                                {% if patient != null %}
-                                <form action="modify" method="post">
-                                    {% csrf_token %}
-                                    <div class="form-group mb-3">
-                                        <input type="text" name="id" class="form-control" placeholder="id"
-                                               value="{{patient.id}}" hidden>
-                                        <label><strong>Nom</strong></label>
-                                        <input type="text" name="nom" class="form-control" placeholder="Nom"
-                                               value="{{patient.nom}}">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <label><strong>Date</strong></label>
-                                        <input type="date" name="dateNaissance" class="form-control"
-                                               placeholder="Date" value='{{ patient.dateNaissance|date:"Y-m-d" }}'>
-                                    </div>
-                                    <div class="form-group">
-                                        <label><strong>Malade</strong></label><br>
-                                        {% if patient.malade == True %}
-                                        Oui <input type="radio" name="malade"
-                                                   value="Oui" checked>
-                                        Non <input type="radio" name="malade"
-                                                   value="Non">
-                                        {% else %}
-                                        Oui <input type="radio" name="malade"
-                                                   value="Oui">
-                                        Non <input type="radio" name="malade"
-                                                   value="Non" checked>
-                                        {% endif %}
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" name="modifier" class="btn btn-primary btn-block">Modifier
-                                        </button>
-                                    </div>
-                                </form>
-                                {% else %}
+                                <h4 class="text-center mb-4">{{produit.nomProduit}}</h4>
+
                                 <form action="create" method="post">
-                                    {% csrf_token %}
+
                                     <div class="form-group mb-3">
-                                        <label><strong>Nom</strong></label>
-                                        <input type="text" name="nom" class="form-control" placeholder="Nom">
+                                        <label><strong>produit reference</strong></label>
+                                        <input type="text" name="produit reference" class="form-control" value="{{produit.produitRef}}" readonly>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label><strong>Date</strong></label>
-                                        <input type="date" name="dateNaissance" class="form-control"
-                                               placeholder="Date">
+                                        <label><strong>nom du produit</strong></label>
+                                        <input type="text" name="nom du produit" class="form-control" value="{{produit.nomProduit}}" readonly>
                                     </div>
-                                    <div class="form-group">
-                                        <label><strong>Malade</strong></label><br>
-                                        Oui <input type="radio" name="malade"
-                                                   value="Oui">
-                                        Non <input type="radio" name="malade"
-                                                   value="Non">
+                                    <div class="form-group mb-3">
+                                        <label><strong>date de production</strong></label>
+                                        <input type="text" name="nom du produit" class="form-control" value="{{produit.dateProduction}}" readonly>
                                     </div>
-                                    <div class="text-center">
-                                        <button type="submit" name="ajouter" class="btn btn-primary btn-block">Ajouter
-                                        </button>
+                                    <div class="form-group mb-3">
+                                        <label><strong>prix</strong></label>
+                                        <input type="text" name="prix" class="form-control" value="{{produit.prix}}" readonly>
                                     </div>
+                                     <div class="form-group mb-3">
+                                        <label><strong>Categorie</strong></label>
+                                        <input type="text" name="Categorie" class="form-control" value="{{produit.categorie.nomCategorie}}" readonly>
+                                    </div>
+
                                 </form>
-                                {% endif %}
+
                             </div>
                         </div>
                     </div>

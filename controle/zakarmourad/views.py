@@ -54,8 +54,8 @@ def personne(request):
 
 
 def commande(request, id):
-    personne =Personne.objects.get(id=id)
-    commandes = commande.objects.get(personne=personne)
+    personn =Personne.objects.get(id=id)
+    commandes = Commande.objects.filter(personne=personn)
     paginator = Paginator(commandes, 10)
     page_number = request.GET.get('page')
     if page_number is not None:
@@ -78,13 +78,13 @@ def get_produit(request):
             dateProduction=request.POST.get("dateProduction",  "")
             prix=request.POST.get("prix", "")
             categori=request.POST.get("categorie", "")
-            categorie=Categorie.objects.get(nomCategorie=categori)
-            produit=Produit.objects.create(produitRef=produitRef,nomProduit=nomProduit,dateProduction=dateProduction,prix=prix,categorie=categorie)
+            categori=Categorie.objects.get(id=categori)
+            produit=Produit.objects.create(produitRef=produitRef,nomProduit=nomProduit,dateProduction=dateProduction,prix=prix,categorie=categori)
             produit.save()
 
 
             # redirect to a new URL:
-            return HttpResponseRedirect('produit/')
+            return HttpResponseRedirect('/produit/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -96,7 +96,7 @@ def get_categorie(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = ProduitForm(request.POST)
+        form = CategorieForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -106,37 +106,37 @@ def get_categorie(request):
 
 
             # redirect to a new URL:
-            return HttpResponseRedirect('produit/')
+            return HttpResponseRedirect('/produit/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = CategorieForm()
 
-    return render(request, 'produitForm.html', {'form': form})
+    return render(request, 'categorieForm.html', {'form': form})
 
 def get_personne(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = ProduitForm(request.POST)
+        form = PersonneForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            nom= request.POST.get("nom", "")
+            nom = request.POST.get("nom", "")
             prenom = request.POST.get("prenom", "")
             email = request.POST.get("email", "")
-            personne=Produit.objects.create(nom=nom,prenom=prenom,email=email)
+            personne=Personne.objects.create(nom=nom, prenom=prenom, email=email)
             personne.save()
 
 
             # redirect to a new URL:
-            return HttpResponseRedirect('produit/')
+            return HttpResponseRedirect('/produit/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = PersonneForm()
 
-    return render(request, 'produitForm.html', {'form': form})
+    return render(request, 'personneForm.html', {'form': form})
 
 def get_commande(request):
     # if this is a POST request we need to process the form data
@@ -151,7 +151,7 @@ def get_commande(request):
             personn = request.POST.get("personne", "")
             personne = Personne.objects.get(nom=personn)
             produit = request.POST.get("produit", "")
-            personne=Produit.objects.create(referenceCmd=referenceCmd,dateCmd=dateCmd,personne=personne)
+            personne=Produit.objects.create(referenceCmd=referenceCmd,dateCmd=dateCmd,personne=personne,produit=produit)
             personne.save()
 
 
@@ -162,4 +162,4 @@ def get_commande(request):
     else:
         form = PersonneForm()
 
-    return render(request, 'produitForm.html', {'form': form})
+    return render(request, 'commandeForm.html', {'form': form})

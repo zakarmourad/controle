@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd320dde-c333-4e8b-adb4-de5e3b54b258" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle/controle/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/controle/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/controle/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/templates/detaille.html" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/templates/detaille.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/templates/personne.html" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/templates/personne.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/templates/produitForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/templates/produitForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle/zakarmourad/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle/zakarmourad/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle/zakarmourad/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

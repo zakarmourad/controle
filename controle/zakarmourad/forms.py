@@ -6,7 +6,8 @@ class ProduitForm(forms.Form):
     nomProduit = forms.CharField(label='nom de produit', max_length=100)
     dateProduction = forms.CharField(label='date production', max_length=100)
     prix = forms.FloatField(label='Prix')
-    categorie = forms.ChoiceField(label='categorie', choices={Categorie.objects.all()})
+    categorie = forms.ModelChoiceField(queryset=Categorie.objects.all())
+
 
 
 class CategorieForm(forms.Form):
